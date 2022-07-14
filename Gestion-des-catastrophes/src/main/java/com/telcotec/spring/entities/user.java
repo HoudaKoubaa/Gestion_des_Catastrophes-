@@ -95,6 +95,30 @@ private String  Adresse;
 private String  photo;
 
 
+public user(int id, @NonNull String nom, @NonNull String mdp) {
+	super();
+	this.id = id;
+	this.nom = nom;
+	this.mdp = mdp;
+}
+
+
+public user() {
+	super();
+}
+
+
+public user(int id, @NonNull String nom, @NonNull String mdp, @NonNull String email) {
+	super();
+	this.id = id;
+	this.nom = nom;
+	this.mdp = mdp;
+	this.email = email;
+
+}
+
+
+
 
 
 }
