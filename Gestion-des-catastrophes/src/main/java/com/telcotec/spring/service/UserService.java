@@ -1,5 +1,28 @@
 package com.telcotec.spring.service;
 
-public class UserService {
+import java.util.ArrayList;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
+
+import com.telcotec.spring.entities.user;
+import com.telcotec.spring.repository.UserRepository;
+
+
+
+@Service
+public class UserService implements UserDetailsService {
+
+	 @Autowired
+	    private UserRepository repository;
+
+	    @Override
+	    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+	        user user = repository.findByNom(username);
+	        return new org.springframework.security.core.userdetails.User(user.getNom(), user.getMdp(), new ArrayList<>());
+	    }
+	
 }
