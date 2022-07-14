@@ -1,15 +1,16 @@
-package com.telcotec.spring.service;
+package com.telcotec.spring.controlleur;
 
 import java.io.IOException;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.springframework.stereotype.Service;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-
+@Service
 public class WeatherService {
  private OkHttpClient client;
  private Response response;

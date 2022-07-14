@@ -11,6 +11,10 @@ import com.vaadin.ui.*;
 public class MainView extends UI{
 
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public VerticalLayout mainLyout;
 
 	@Override
