@@ -5,9 +5,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 import com.telcotec.spring.controlleur.WeatherService;
+import com.telcotec.spring.view.MainView;
 
 @SpringBootApplication
-@ComponentScan(basePackageClasses=WeatherService.class)
+@ComponentScan(basePackageClasses=MainView.class)
 public class GestionDesCatastrophesApplication {
 
 	public static void main(String[] args) {

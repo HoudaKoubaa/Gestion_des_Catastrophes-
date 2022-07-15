@@ -1,27 +1,26 @@
 package com.telcotec.spring.view;
 
-import com.vaadin.flow.component.UI;
-import com.vaadin.flow.server.VaadinRequest;
-import com.vaadin.spring.annotation.*;
 
 import com.vaadin.ui.*;
 
 
-@SpringUI(path="/View")
+import com.vaadin.spring.annotation.SpringUI;
+import com.vaadin.server.VaadinRequest;
+
+
+@SpringUI(path="/Views")
 public class MainView extends UI{
 
 	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+	
 	public VerticalLayout mainLyout;
 
 	@Override
-    protected void init(VaadinRequest request) {
+	protected void init(VaadinRequest request) {
 		mainLayout();
 		setHeader();
-    }
+		
+	}
 	
 	private void mainLayout() {
 		// TODO Auto-generated method stub
@@ -31,7 +30,7 @@ public class MainView extends UI{
 		mainLyout.setMargin(true);
 		mainLyout.setDefaultComponentAlignment(Alignment.MIDDLE_CENTER);
 
-		//setContent(mainLyout);
+		this.setContent(mainLyout);
 		
 	}
 
@@ -42,5 +41,7 @@ public class MainView extends UI{
 		header.addComponent(title);
 		mainLyout.addComponent(header);
 	}
+
+	
 	
 }
