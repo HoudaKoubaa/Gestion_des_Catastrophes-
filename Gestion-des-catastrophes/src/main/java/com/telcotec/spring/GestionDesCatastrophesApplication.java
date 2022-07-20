@@ -1,18 +1,20 @@
 package com.telcotec.spring;
 
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.ComponentScan;
 
-import com.telcotec.spring.controlleur.WeatherService;
-import com.telcotec.spring.view.MainView;
 
 @SpringBootApplication
-@ComponentScan(basePackageClasses=MainView.class)
-public class GestionDesCatastrophesApplication {
+@ComponentScan("com.telcotec.spring")
+public class GestionDesCatastrophesApplication{
 
 	public static void main(String[] args) {
 		SpringApplication.run(GestionDesCatastrophesApplication.class, args);
+		System.out.println("User Applications Started Running ");
 	}
-
+	
 }

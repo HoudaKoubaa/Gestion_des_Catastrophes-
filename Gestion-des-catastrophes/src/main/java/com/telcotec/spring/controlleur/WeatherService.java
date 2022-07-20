@@ -12,70 +12,70 @@ import okhttp3.Request;
 import okhttp3.Response;
 @Service
 public class WeatherService {
- private OkHttpClient client;
- private Response response;
- private String cityname;
- String unit;
- private String API="1a79a0a73532a753db66da242befaa84";
- 
- 
- public JSONObject getweather() throws JSONException {
-	 client = new OkHttpClient();
-	 Request request= new Request.Builder()
-	.url("https://api.openweathermap.org/data/2.5/weather?q="+getCityname()+"&units="+getUnit()+"&appid=1a79a0a73532a753db66da242befaa84").build();
- 	
-	 try {
-		response = client.newCall(request).execute();
-		return new JSONObject(response.body().string());
-	} catch (IOException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-	 return null;
-	 
-	 
- }
- public JSONArray returnWeatherArray() throws JSONException {
-	 JSONArray weatherArray= getweather().getJSONArray("weather");
-	 return weatherArray;
- }
+	   private OkHttpClient client;
+	    private Response response;
+	    private String cityName;
+	    private String unit;
+	    private String APIkey = "ba61e79a0119a86f77cc471643451b24";
 
- public JSONArray returnMain() throws JSONException {
-	 JSONArray main= getweather().getJSONArray("main");
-	 return main;
- }
- 
- 
- public JSONArray returnWind() throws JSONException {
-	 JSONArray wind= getweather().getJSONArray("wind");
-	 return wind;
- }
- 
- public JSONArray returnSys() throws JSONException {
-	 JSONArray sys= getweather().getJSONArray("sys");
-	 return sys;
- }
-public String getCityname() {
-	return cityname;
-}
+	    //Getting Data from OpenWeather API
+	    public JSONObject getWeather(){
+	        client = new OkHttpClient();  //using OKHTTP dependency . You have to add this mannually form OKHTTP website
+	        Request request = new Request.Builder()
+	                .url("http://api.openweathermap.org/data/2.5/weather?q="+getCityName()+"&units="+getUnit()+"&appid="+APIkey)
+	                .build();
+
+	        try {
+	            response = client.newCall(request).execute();
+	            return new JSONObject(response.body().string());
+	        }catch (IOException | JSONException e){
+	            e.printStackTrace();
+	        }
+	        return null;
+	    }
+
+	    //Getting required data from Weather JSON API
+	    //JSON Objects and JSON Arrays
 
 
-public void setCityname(String cityname) {
-	this.cityname = cityname;
-}
+	    public JSONArray returnWeatherArray() throws JSONException {
+	        JSONArray weatherJsonArray = getWeather().getJSONArray("weather");
+	        return weatherJsonArray;
+	    }
+
+	    public JSONObject returnMainObject() throws JSONException {
+	        JSONObject mainObject = getWeather().getJSONObject("main");
+	        return mainObject;
+	    }
 
 
-public String getUnit() {
-	return unit;
-}
+	    public JSONObject returnWindObject() throws JSONException {
+	        JSONObject wind = getWeather().getJSONObject("wind");
+	        return wind;
+	        }
+
+	    public JSONObject returnSysObject() throws JSONException{
+	        JSONObject sys = getWeather().getJSONObject("sys");
+	        return sys;
+	        } // to  pull the values of Sys from JSON
 
 
-public void setUnit(String unit) {
-	this.unit = unit;
-}
+	     // Getters and Setters for CityName and Unit
 
+	    public String getCityName() {
+	        return cityName;
+	    }
 
+	    public void setCityName(String cityName) {
+	        this.cityName = cityName;
+	    }
 
- 
+	    public String getUnit() {
+	        return unit;
+	    }
+
+	    public void setUnit(String unit) {
+	        this.unit = unit;
+	    }
  
 }
