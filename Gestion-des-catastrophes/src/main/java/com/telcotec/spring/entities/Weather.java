@@ -26,6 +26,8 @@ public class Weather implements Serializable {
     private String name;
     private double lat;
     private double temp_min;
+
+
     private double temp_max;
     private double humidity;
 
@@ -98,6 +100,37 @@ public class Weather implements Serializable {
     public void setCoord(Map<String, Object> coord) {
         setLon((double) coord.get("lon"));
         setLat((double) coord.get("lat"));
+
+    }
+    @JsonProperty("temp_min")
+    public double getTemp_min() {
+        return temp_min;
+    }
+    @JsonProperty("temp_min")
+    public void setTemp_min(double temp_min) {
+        this.temp_min = temp_min;
+    }
+    @JsonProperty("temp_max")
+    public double getTemp_max() {
+        return temp_max;
+    }
+    @JsonProperty("temp_max")
+    public void setTemp_max(double temp_max) {
+        this.temp_max = temp_max;
+    }
+    @JsonProperty("humidity")
+    public double getHumidity() {
+        return humidity;
+    }
+    @JsonProperty("humidity")
+    public void setHumidity(double humidity) {
+        this.humidity = humidity;
+    }
+    @JsonProperty("main")
+    public void setmain(Map<String, Object> main) {
+        setTemp_min((double) main.get("temp_min"));
+        setTemp_max((double) main.get("temp_max"));
+        setHumidity((double) main.get("humidity"));
 
     }
 }

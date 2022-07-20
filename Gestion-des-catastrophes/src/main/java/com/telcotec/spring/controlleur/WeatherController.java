@@ -32,7 +32,7 @@ public class WeatherController {
 
     @Autowired
     public WeatherService wr;
-    @RequestMapping(value = "/weather",method= RequestMethod.GET )
+    @RequestMapping(value = "/weather1",method= RequestMethod.GET )
     public String CityForm(Model model) {
 
         model.addAttribute("city", new FormCityAttribute());

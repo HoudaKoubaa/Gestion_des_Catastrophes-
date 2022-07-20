@@ -18,7 +18,6 @@
 	<name>Gestion-des-catastrophes</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
-
 		<java.version>11</java.version>
 		<vaadin.version>19.0.8</vaadin.version>
 		<maven-jar-plugin.version>3.2.0</maven-jar-plugin.version>
@@ -32,7 +31,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
 		
 		<dependency>
 			<groupId>mysql</groupId>
@@ -45,78 +43,23 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.vaadin</groupId>
-			<artifactId>vaadin-spring-boot-starter</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.squareup.okio</groupId>
-			<artifactId>okio</artifactId>
-			<version>2.6.0</version>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
 			<groupId>com.squareup.okhttp3</groupId>
 			<artifactId>okhttp</artifactId>
 			<version>4.6.0</version>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.vaadin.external.google</groupId>
-			<artifactId>android-json</artifactId>
-			<version>0.0.20131108.vaadin1</version>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>net.minidev</groupId>
-			<artifactId>json-smart</artifactId>
-			<version>2.4.2</version>
-			<scope>compile</scope>
-		</dependency>
+
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId> springfox-boot-starter </artifactId>
 			<version> 3.0.0 </version>
 		</dependency>
-	<dependency>
-    <groupId>com.vaadin</groupId>
-    <artifactId>vaadin-spring-boot-starter</artifactId>
-    <version>22.0.18</version>
-</dependency>
-	<!-- https://mvnrepository.com/artifact/com.vaadin/vaadin-spring -->
-<dependency>
-	<groupId>com.vaadin</groupId>
-	<artifactId>vaadin-spring</artifactId>
-	<version>1.2.0</version>
-</dependency>
 <dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-<!-- Thanks for using https://jar-download.com -->
 
 
-    <dependency>
-			<groupId>com.vaadin</groupId>
-			<artifactId>vaadin-spring-boot-starter</artifactId>
-			<version>19.0.2</version>
-		</dependency>
-<!-- https://mvnrepository.com/artifact/com.vaadin/vaadin-icons -->
-<dependency>
-    <groupId>com.vaadin</groupId>
-    <artifactId>vaadin-icons</artifactId>
-    <version>3.0.0</version>
-</dependency>
-
-<dependency>
-        <groupId>org.springframework.experimental</groupId>
-        <artifactId>spring-native</artifactId>
-        <version>0.12.0</version>
-    </dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -138,25 +81,7 @@
 			<artifactId>jackson-datatype-jsr310</artifactId>
 		</dependency>
 	</dependencies>
-<repositories>
-        
-        <repository>
-            <id>snapshots</id>
-            <name>Local Nexus</name>
-            <url>https://repo.spring.io/release</url>
-        </repository>
-    </repositories>
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>com.vaadin</groupId>
-				<artifactId>vaadin-bom</artifactId>
-				<version>${vaadin.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
+
 	<build>
 		<plugins>
 			<plugin>
