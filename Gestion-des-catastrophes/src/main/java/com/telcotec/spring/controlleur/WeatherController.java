@@ -3,6 +3,7 @@ package com.telcotec.spring.controlleur;
 import com.telcotec.spring.entities.FormCityAttribute;
 import com.telcotec.spring.entities.Weather;
 import com.telcotec.spring.entities.WeatherUrl;
+import com.telcotec.spring.service.WeatherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,6 +30,8 @@ public class WeatherController {
     @Autowired
     private WeatherUrl weatherData;
 
+    @Autowired
+    public WeatherService wr;
     @RequestMapping(value = "/weather",method= RequestMethod.GET )
     public String CityForm(Model model) {
 
@@ -37,7 +40,7 @@ public class WeatherController {
     }
 
     @RequestMapping(value = "/weather",method=RequestMethod.POST )
-    public String getWeather(Model model, @ModelAttribute FormCityAttribute city)
+    public Weather getWeather(Weather w, @ModelAttribute FormCityAttribute city)
             throws JsonParseException, JsonMappingException, IOException {
 
         UriComponents uriComponents = UriComponentsBuilder
@@ -54,7 +57,9 @@ public class WeatherController {
 
         ObjectMapper mapper = new ObjectMapper();
         Weather weather = mapper.readValue(resp.getBody(), Weather.class);
-        model.addAttribute("weatherData", weather);
-        return "weatherDetails";
+        wr.addWeather(weather);
+        return weather;
+        //  model.addAttribute("weatherData", weather);
+       // return "weatherDetails";
     }
 }

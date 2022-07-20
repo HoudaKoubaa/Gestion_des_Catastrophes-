@@ -25,6 +25,9 @@ public class Weather implements Serializable {
     private double lon;
     private String name;
     private double lat;
+    private double temp_min;
+    private double temp_max;
+    private double humidity;
 
     public int getId() {
         return id;
