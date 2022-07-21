@@ -29,7 +29,7 @@ public class Weather implements Serializable {
 
 
     private double temp_max;
-    private double humidity;
+    private int humidity;
 
     public int getId() {
         return id;
@@ -119,18 +119,18 @@ public class Weather implements Serializable {
         this.temp_max = temp_max;
     }
     @JsonProperty("humidity")
-    public double getHumidity() {
+    public int getHumidity() {
         return humidity;
     }
     @JsonProperty("humidity")
-    public void setHumidity(double humidity) {
+    public void setHumidity(int humidity) {
         this.humidity = humidity;
     }
     @JsonProperty("main")
     public void setmain(Map<String, Object> main) {
         setTemp_min((double) main.get("temp_min"));
         setTemp_max((double) main.get("temp_max"));
-        setHumidity((double) main.get("humidity"));
+        setHumidity((int) main.get("humidity"));
 
     }
 }
