@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "TechGeeks": {
+    "Gestion-des-catastrophes": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -27,7 +27,6 @@
               "src/assets"
             ],
             "styles": [
-              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -72,7 +71,7 @@
               "browserTarget": "Gestion-des-catastrophes:build:production"
             },
             "development": {
-              "browserTarget": "TecGestion-des-catastropheshGeeks:build:development"
+              "browserTarget": "Gestion-des-catastrophes:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -95,7 +94,6 @@
               "src/assets"
             ],
             "styles": [
-              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
             "scripts": []
