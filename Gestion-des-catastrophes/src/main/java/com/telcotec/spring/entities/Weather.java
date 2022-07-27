@@ -2,10 +2,16 @@ package com.telcotec.spring.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
+import lombok.Getter;
+import lombok.Setter;
+
 import org.springframework.context.annotation.Bean;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.List;
@@ -13,31 +19,28 @@ import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Entity
+@Getter
+@Setter
 public class Weather implements Serializable {
 
     private static final long serialVersionUID = 7406210628182440902L;
 
     @Id
-    @Column(name = "id", nullable = false)
-    private int id;
-
+    @Column(name = "idweather")
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private int idweather;
+    
+    @Column(name = "id", nullable = false) 
+	private int id;
     private String weatherDescription;
     private double lon;
     private String name;
     private double lat;
     private double temp_min;
-
-
     private double temp_max;
     private int humidity;
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
+   
 
     @Bean
     public Weather weather() {
@@ -83,6 +86,7 @@ public class Weather implements Serializable {
     @JsonProperty("weather")
     public void setWeather(List<Map<String, Object>> weatherEntries) {
         Map<String, Object> weather = weatherEntries.get(0);
+        setId((int)weather.get("id"));
         setWeatherDescription((String) weather.get("description"));
     }
 
@@ -133,4 +137,10 @@ public class Weather implements Serializable {
         setHumidity((int) main.get("humidity"));
 
     }
+    public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 }

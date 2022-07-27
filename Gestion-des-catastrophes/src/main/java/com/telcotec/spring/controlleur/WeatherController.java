@@ -40,7 +40,7 @@ public class WeatherController {
     }
 
     @RequestMapping(value = "/weather",method=RequestMethod.POST )
-    public Weather getWeather(Weather w, @ModelAttribute FormCityAttribute city)
+    public Weather getWeather(@ModelAttribute FormCityAttribute city)
             throws JsonParseException, JsonMappingException, IOException {
 
         UriComponents uriComponents = UriComponentsBuilder
