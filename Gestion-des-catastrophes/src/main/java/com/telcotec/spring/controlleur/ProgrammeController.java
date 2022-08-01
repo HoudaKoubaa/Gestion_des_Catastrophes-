@@ -3,6 +3,7 @@ package com.telcotec.spring.controlleur;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,6 +16,7 @@ import com.telcotec.spring.entities.Intervention;
 import com.telcotec.spring.entities.Programme;
 import com.telcotec.spring.service.IProgrammeService;
 
+@CrossOrigin(origins = "*")
 @RestController
 public class ProgrammeController {
 	
@@ -34,7 +36,7 @@ public class ProgrammeController {
 		return programmeService.retrieveAllProgrammes();
 	}
 	@PutMapping("modify-programme")
-	Programme updateIntervention(@RequestBody Programme p){
+	Programme updateProgramme(@RequestBody Programme p){
 		
 		return programmeService.updateProgramme(p);
 	}
