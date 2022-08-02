@@ -12,6 +12,9 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModal, NgbModalModule, NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { ListReportingComponent } from './components/reporting/list-reporting/list-reporting.component';
+import { ListProgrammeComponent } from './components/programme/list-programme/list-programme.component';
+import { ListInterventionComponent } from './components/intervention/list-intervention/list-intervention.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +22,10 @@ import { NgbModal, NgbModalModule, NgbModule} from '@ng-bootstrap/ng-bootstrap';
     BodyComponent,
     FooterComponent,
     HomeComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ListReportingComponent,
+    ListProgrammeComponent,
+    ListInterventionComponent
   ],
   imports: [
     BrowserModule,
