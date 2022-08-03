@@ -8,6 +8,7 @@ import { BodyComponent } from './components/shared/body/body.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 import { NotFoundComponent } from './components/shared/not-found/not-found.component';
+import { SignInComponent } from './components/sign-in/sign-in.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,9 @@ import { NotFoundComponent } from './components/shared/not-found/not-found.compo
     BodyComponent,
     FooterComponent,
     HomeComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    SignInComponent,
+  
   ],
   imports: [
     BrowserModule,
