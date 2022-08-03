@@ -3,6 +3,7 @@ package com.telcotec.spring.controlleur;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.telcotec.spring.entities.Reporting;
 import com.telcotec.spring.service.IReportingService;
 
+@CrossOrigin(origins = "*")
 @RestController
 public class ReportingController {
 	
@@ -39,7 +41,7 @@ public class ReportingController {
 	}
 	
 	@DeleteMapping("delete-report/{id}")
-	void deleteIntervention(@PathVariable("id") int idReport){
+	void deleteReporting(@PathVariable("id") int idReport){
 		reportingService.deleteReport(idReport);
 		
 	}

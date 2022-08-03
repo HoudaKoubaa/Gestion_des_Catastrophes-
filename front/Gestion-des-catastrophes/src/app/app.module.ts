@@ -10,6 +10,12 @@ import { HomeComponent } from './components/home/home.component';
 import { NotFoundComponent } from './components/shared/not-found/not-found.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 
+import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { ListReportingComponent } from './components/reporting/list-reporting/list-reporting.component';
+import { ListProgrammeComponent } from './components/programme/list-programme/list-programme.component';
+import { ListInterventionComponent } from './components/intervention/list-intervention/list-intervention.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,10 +26,15 @@ import { SignInComponent } from './components/sign-in/sign-in.component';
     NotFoundComponent,
     SignInComponent,
   
+    ListReportingComponent,
+    ListProgrammeComponent,
+    ListInterventionComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    RouterModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
