@@ -16,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ListReportingComponent } from './components/reporting/list-reporting/list-reporting.component';
 import { ListProgrammeComponent } from './components/programme/list-programme/list-programme.component';
 import { ListInterventionComponent } from './components/intervention/list-intervention/list-intervention.component';
+import { TopbarComponent } from './components/shared/topbar/topbar.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +29,8 @@ import { ListInterventionComponent } from './components/intervention/list-interv
   
     ListReportingComponent,
     ListProgrammeComponent,
-    ListInterventionComponent
+    ListInterventionComponent,
+    TopbarComponent
   ],
   imports: [
     BrowserModule,
