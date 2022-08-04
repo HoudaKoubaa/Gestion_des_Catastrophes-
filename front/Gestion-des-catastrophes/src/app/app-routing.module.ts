@@ -13,6 +13,7 @@ const routes: Routes = [
   {path:'sidebar',component:SidebarComponent},
   {path:'footer',component:FooterComponent},
   {path:'404',component:NotFoundComponent},
+  {path:'notfound',component:NotFoundComponent},
   {path:'**',component:NotFoundComponent}
 ];
 
