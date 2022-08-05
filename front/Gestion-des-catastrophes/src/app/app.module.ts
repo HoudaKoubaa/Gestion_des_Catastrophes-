@@ -8,7 +8,6 @@ import { BodyComponent } from './components/shared/body/body.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 import { NotFoundComponent } from './components/shared/not-found/not-found.component';
-import { SignInComponent } from './components/sign-in/sign-in.component';
 
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -17,6 +16,7 @@ import { ListReportingComponent } from './components/reporting/list-reporting/li
 import { ListProgrammeComponent } from './components/programme/list-programme/list-programme.component';
 import { ListInterventionComponent } from './components/intervention/list-intervention/list-intervention.component';
 import { TopbarComponent } from './components/shared/topbar/topbar.component';
+import { LoginComponent } from './components/login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,18 +25,20 @@ import { TopbarComponent } from './components/shared/topbar/topbar.component';
     FooterComponent,
     HomeComponent,
     NotFoundComponent,
-    SignInComponent,
   
     ListReportingComponent,
     ListProgrammeComponent,
     ListInterventionComponent,
-    TopbarComponent
+    TopbarComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     RouterModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
