@@ -1,8 +1,10 @@
 package com.telcotec.spring.service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.UUID;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -13,21 +15,25 @@ import com.telcotec.spring.entities.ConfirmationToken;
 import com.telcotec.spring.entities.user;
 import com.telcotec.spring.repository.UserRepository;
 
-import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
-@SuppressWarnings("unused")
 @Service
-@AllArgsConstructor
-public class UserService implements  UserDetailsService {
+@Slf4j
+
+
+
+public class UserService implements  IUserService, UserDetailsService {
+	
+	@Autowired
+	UserRepository UserRepository;
 
 	private final static String USER_NOT_FOUND_MSG =
 			"user with email %s not found";
 
-	private final UserRepository appUserRepository;
-	private final BCryptPasswordEncoder bCryptPasswordEncoder;
-	private final ConfirmationTokenService confirmationTokenService;
+	private  UserRepository appUserRepository;
+	private  BCryptPasswordEncoder bCryptPasswordEncoder;
+	private  ConfirmationTokenService confirmationTokenService;
 
-	@Override
 	public UserDetails loadUserByUsername(String email)
 			throws UsernameNotFoundException {
 		return appUserRepository.findByEmail(email)
@@ -72,5 +78,36 @@ public class UserService implements  UserDetailsService {
 
 	public int enableAppUser(String email) {
 		return appUserRepository.enableAppUser(email);
+	}
+
+	@Override
+	public List<user> retrieveAllUsers() {
+		List<user> userList = UserRepository.findAll();
+		for (user user : userList){
+			log.info(" User: " +user);
+		}
+		return userList;
+}
+
+	@Override
+	public user addUser(user u) {
+		UserRepository.save(u);
+		return u;
+	}
+
+	@Override
+	public user updateUser(user u) {
+		UserRepository.save(u);
+		return u;
+	}
+
+	@Override
+	public user retrieveUser(int id) {
+		return UserRepository.findById(id).orElse(null);
+	}
+
+	@Override
+	public void deleteUser(int id) {
+		UserRepository.deleteById(id);		
 	}
 }
