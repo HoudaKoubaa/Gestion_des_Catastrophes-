@@ -7,7 +7,7 @@ public interface IUserService {
 	List<user> retrieveAllUsers();
 	user addUser(user p);
 	user updateUser(user p);
-	user retrieveUser(int id);
+	user retrieveUser(long id);
 	void deleteUser(int id);
 
 }

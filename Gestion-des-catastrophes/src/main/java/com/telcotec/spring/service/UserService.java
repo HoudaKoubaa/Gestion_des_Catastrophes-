@@ -102,12 +102,14 @@ public class UserService implements  IUserService, UserDetailsService {
 	}
 
 	@Override
-	public user retrieveUser(int id) {
-		return UserRepository.findById(id).orElse(null);
+	public user retrieveUser(long id) {
+		return UserRepository.findById((int) id).orElse(null);
 	}
 
 	@Override
 	public void deleteUser(int id) {
 		UserRepository.deleteById(id);		
 	}
+	
+	
 }

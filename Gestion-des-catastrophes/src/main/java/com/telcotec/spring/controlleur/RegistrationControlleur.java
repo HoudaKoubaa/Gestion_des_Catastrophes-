@@ -35,5 +35,10 @@ public class RegistrationControlleur {
 		
 		return userService.retrieveAllUsers();
 	}
+	
+	
+		
 
-}
+	}
+
+
