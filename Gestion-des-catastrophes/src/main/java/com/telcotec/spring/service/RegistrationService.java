@@ -20,36 +20,39 @@ import java.time.LocalDateTime;
 
 @Service
 @AllArgsConstructor
-public class RegistrationService {
+	public class RegistrationService {
 
-	private final UserService appUserService;
-	private final EmailValidator emailValidator;
-	private final ConfirmationTokenService confirmationTokenService;
-	private final EmailSender emailSender;
+	    private final UserService appUserService;
+	    private final EmailValidator emailValidator;
+	    private final ConfirmationTokenService confirmationTokenService;
+	    private final EmailSender emailSender;
 
-	public String register(RegistrationRequest request) {
-		boolean isValidEmail = emailValidator.
-				test(request.getEmail());
+	    public String register(RegistrationRequest request) {
+	        boolean isValidEmail = emailValidator.
+	                test(request.getEmail());
 
+	        if (!isValidEmail) {
+	            throw new IllegalStateException("email not valid");
+	        }
 
+	        String token = appUserService.signUpUser(
+	                new user(
+	                        request.getFirstName(),
+	                        request.getLastName(),
+	                        request.getEmail(),
+	                        request.getPassword()
 
-		String token = appUserService.signUpUser(
-				new user(
-						request.getFirstName(),
-						request.getLastName(),
-						request.getEmail(),
-						request.getPassword()
+	                )
+	        );
 
-						)
-				);
+	        String link = "http://localhost:9090/api/v1/registration/confirm?token=" + token;
+	        emailSender.send(
+	                request.getEmail(),
+	                buildEmail(request.getFirstName(), link));
 
-		String link = "http://localhost:9090/api/v1/registration/confirm?token=" + token;
-		emailSender.send(
-				request.getEmail(),
-				buildEmail(request.getFirstName(), link));
+	        return token;
+	    }
 
-		return token;
-	}
 
 	@Transactional
 	public String confirmToken(String token) {  ConfirmationToken confirmationToken = confirmationTokenService

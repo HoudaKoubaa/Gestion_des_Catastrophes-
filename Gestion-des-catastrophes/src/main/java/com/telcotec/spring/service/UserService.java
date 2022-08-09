@@ -15,35 +15,33 @@ import com.telcotec.spring.entities.ConfirmationToken;
 import com.telcotec.spring.entities.user;
 import com.telcotec.spring.repository.UserRepository;
 
-import lombok.extern.slf4j.Slf4j;
+import lombok.AllArgsConstructor;
 
+@SuppressWarnings("unused")
 @Service
-@Slf4j
+@AllArgsConstructor
+public class UserService implements  UserDetailsService,IUserService {
 
-
-
-public class UserService implements  IUserService, UserDetailsService {
-	
 	@Autowired
-	UserRepository UserRepository;
-
+	UserRepository appUserRepository1;
 	private final static String USER_NOT_FOUND_MSG =
 			"user with email %s not found";
 
-	private  UserRepository appUserRepository;
-	private  BCryptPasswordEncoder bCryptPasswordEncoder;
-	private  ConfirmationTokenService confirmationTokenService;
+	private final UserRepository appUserRepository;
+	private final BCryptPasswordEncoder bCryptPasswordEncoder;
+	private final ConfirmationTokenService confirmationTokenService;
 
+	@Override
 	public UserDetails loadUserByUsername(String email)
 			throws UsernameNotFoundException {
-		return appUserRepository.findByEmail(email)
+		return appUserRepository1.findByEmail(email)
 				.orElseThrow(() ->
 				new UsernameNotFoundException(
 						String.format(USER_NOT_FOUND_MSG, email)));
 	}
 
 	public String signUpUser(user appUser) {
-		boolean userExists = appUserRepository.findByEmail(appUser.getUsername()).isPresent();
+		boolean userExists = appUserRepository1.findByEmail(appUser.getUsername()).isPresent();
 
 		if (userExists) {
 			// TODO check of attributes are the same and
@@ -57,7 +55,7 @@ public class UserService implements  IUserService, UserDetailsService {
 
 		appUser.setMdp(encodedPassword);
 
-		appUserRepository.save(appUser);
+		appUserRepository1.save(appUser);
 
 		String token = UUID.randomUUID().toString();
 
@@ -77,38 +75,38 @@ public class UserService implements  IUserService, UserDetailsService {
 	}
 
 	public int enableAppUser(String email) {
-		return appUserRepository.enableAppUser(email);
+		return appUserRepository1.enableAppUser(email);
 	}
 
 	@Override
 	public List<user> retrieveAllUsers() {
-		List<user> userList = UserRepository.findAll();
+		List<user> userList = appUserRepository1.findAll();
 		for (user user : userList){
-			log.info(" User: " +user);
+			System.out.println(" User: " +user);
 		}
 		return userList;
 }
 
 	@Override
 	public user addUser(user u) {
-		UserRepository.save(u);
+		appUserRepository1.save(u);
 		return u;
 	}
 
 	@Override
 	public user updateUser(user u) {
-		UserRepository.save(u);
+		appUserRepository1.save(u);
 		return u;
 	}
 
 	@Override
 	public user retrieveUser(long id) {
-		return UserRepository.findById((int) id).orElse(null);
+		return appUserRepository1.findById((int) id).orElse(null);
 	}
 
 	@Override
 	public void deleteUser(int id) {
-		UserRepository.deleteById(id);		
+		appUserRepository1.deleteById(id);		
 	}
 	
 	

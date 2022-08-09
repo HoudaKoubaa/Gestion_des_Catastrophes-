@@ -4,10 +4,16 @@ import java.util.List;
 import com.telcotec.spring.entities.user;
 
 public interface IUserService {
-	List<user> retrieveAllUsers();
-	user addUser(user p);
-	user updateUser(user p);
+
+	user updateUser(user u);
+
+	user addUser(user u);
+
 	user retrieveUser(long id);
+
 	void deleteUser(int id);
+
+	List<user> retrieveAllUsers();
+	
 
 }

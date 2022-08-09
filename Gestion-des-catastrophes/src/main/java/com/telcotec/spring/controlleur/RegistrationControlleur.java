@@ -1,5 +1,4 @@
 package com.telcotec.spring.controlleur;
-import com.telcotec.spring.service.IUserService;
 import com.telcotec.spring.service.RegistrationService;
 import com.telcotec.spring.service.UserService;
 
@@ -16,8 +15,7 @@ import com.telcotec.spring.entities.user;
 @AllArgsConstructor
 public class RegistrationControlleur {
 
-	@Autowired
-	IUserService userService;
+	
     private final RegistrationService registrationService;
 
     @PostMapping
@@ -30,15 +28,6 @@ public class RegistrationControlleur {
         return registrationService.confirmToken(token);
     }
     
-    @GetMapping("/list-user")
-	List<user> retrieveAllUsers(){
-		
-		return userService.retrieveAllUsers();
-	}
-	
-	
-		
+   
 
-	}
-
-
+}
