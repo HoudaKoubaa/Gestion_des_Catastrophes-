@@ -7,14 +7,17 @@ import lombok.AllArgsConstructor;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.telcotec.spring.entities.user;
+import com.telcotec.spring.repository.UserRepository;
 
 @RestController
 @RequestMapping(path = "api/v1/registration")
 @AllArgsConstructor
 public class RegistrationControlleur {
-
+ @Autowired
+ private UserRepository userRepository;
 	
     private final RegistrationService registrationService;
 
@@ -28,6 +31,14 @@ public class RegistrationControlleur {
         return registrationService.confirmToken(token);
     }
     
-   
+   @PostMapping("/login")
+   public ResponseEntity<?> loginUser(@RequestBody user userData)
+   {
+	   user user= userRepository.findByUserId(userData.getId());
+	   if(user.getPassword().equals(userData.getPassword()))
+		   return ResponseEntity.ok(user);
+	   return  (ResponseEntity<?>) ResponseEntity.internalServerError();
+	   
+   }
 
 }
