@@ -9,7 +9,6 @@ public interface IUserService {
 
 	user addUser(user u);
 
-	user retrieveUser(long id);
 
 	void deleteUser(int id);
 

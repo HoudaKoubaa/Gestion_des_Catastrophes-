@@ -16,7 +16,7 @@ export class AuthService {
   }
 
   login(username: any, password: any) {
-    return this.http.get(environment.hostUrl + 'api/v1/registration/list-user',
+    return this.http.get(environment.hostUrl + 'api/v1/registration/login',
       { headers: { authorization: this.createBasicAuthToken(username, password) } }).pipe(map((res) => {
         this.username = username;
         this.password = password;
