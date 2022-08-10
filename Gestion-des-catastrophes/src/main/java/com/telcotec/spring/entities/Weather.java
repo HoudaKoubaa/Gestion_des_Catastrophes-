@@ -38,8 +38,10 @@ public class Weather implements Serializable {
     private double lat;
     private double temp_min;
     private double temp_max;
-    private int humidity;
-
+    private double humidity;
+    private double temp;
+    private String icon;
+    private double speed;
    
 
     @Bean
@@ -88,6 +90,7 @@ public class Weather implements Serializable {
         Map<String, Object> weather = weatherEntries.get(0);
         setId((int)weather.get("id"));
         setWeatherDescription((String) weather.get("description"));
+        setIcon((String) weather.get("icon"));
     }
 
     @JsonProperty("lon")
@@ -101,11 +104,12 @@ public class Weather implements Serializable {
     }
 
     @JsonProperty("coord")
-    public void setCoord(Map<String, Object> coord) {
+    public void setCoord(Map<String, Integer> coord) {
         setLon((double) coord.get("lon"));
         setLat((double) coord.get("lat"));
 
     }
+    
     @JsonProperty("temp_min")
     public double getTemp_min() {
         return temp_min;
@@ -123,18 +127,19 @@ public class Weather implements Serializable {
         this.temp_max = temp_max;
     }
     @JsonProperty("humidity")
-    public int getHumidity() {
+    public double getHumidity() {
         return humidity;
     }
     @JsonProperty("humidity")
-    public void setHumidity(int humidity) {
+    public void setHumidity(double humidity) {
         this.humidity = humidity;
     }
     @JsonProperty("main")
-    public void setmain(Map<String, Object> main) {
+    public void setmain(Map<String, Integer> main) {
+    	setTemp((double) main.get("temp"));
         setTemp_min((double) main.get("temp_min"));
         setTemp_max((double) main.get("temp_max"));
-        setHumidity((int) main.get("humidity"));
+        setHumidity((double) main.get("humidity"));
 
     }
     public int getId() {
@@ -143,4 +148,33 @@ public class Weather implements Serializable {
 	public void setId(int id) {
 		this.id = id;
 	}
+	@JsonProperty("temp")
+	public double getTemp() {
+		return temp;
+	}
+	@JsonProperty("temp")
+	public void setTemp(double temp) {
+		this.temp = temp;
+	}
+	@JsonProperty("icon")
+	public String getIcon() {
+		return icon;
+	}
+	@JsonProperty("icon")
+	public void setIcon(String icon) {
+		this.icon = icon;
+	}
+	@JsonProperty("speed")
+	public double getSpeed() {
+		return speed;
+	}
+	@JsonProperty("speed")
+	public void setSpeed(double speed) {
+		this.speed = speed;
+	}
+	 @JsonProperty("wind")
+	    public void setwind(Map<String, Integer> wind) {
+		 setSpeed((double) wind.get("speed"));
+	    }
+	
 }

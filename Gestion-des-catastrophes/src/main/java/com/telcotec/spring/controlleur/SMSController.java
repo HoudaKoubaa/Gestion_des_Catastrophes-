@@ -5,9 +5,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.telcotec.spring.entities.Sms;
 import com.telcotec.spring.service.SMSService;
 
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -31,18 +31,11 @@ public class SMSController {
     @RequestMapping(value = "/sms", method = RequestMethod.POST,
             consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public void smsSubmit(@RequestBody Sms sms) {
-        try{
+      
             service.send(sms);
             sms.setDateSend(getTimeStamp());
             service.addSMS(sms);
-        }
-        catch(Exception e){
-
-            webSocket.convertAndSend(TOPIC_DESTINATION, getTimeStamp() + ": Error sending the SMS: "+e.getMessage());
-            throw e;
-        }
-        webSocket.convertAndSend(TOPIC_DESTINATION, getTimeStamp() + ": SMS has been sent!: "+sms.getTo());
-
+       
     }
 
     @RequestMapping(value = "/smscallback", method = RequestMethod.POST,
@@ -56,4 +49,15 @@ public class SMSController {
        return DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss").format(LocalDateTime.now());
     }
 
+    
+    @RequestMapping(value = "/smspost",method = RequestMethod.POST,
+            consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public void smsSubmitPost(@RequestBody Sms sms){
+      
+            service.sendSms();
+            sms.setDateSend(getTimeStamp());
+            service.addSMS(sms);
+       
+    }
+   
 }

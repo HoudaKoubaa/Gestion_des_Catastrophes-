@@ -5,14 +5,17 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 
+
+
 @SpringBootApplication
 @ComponentScan("com.telcotec.spring")
 public class GestionDesCatastrophesApplication{
-
+	
 	  
 	public static void main(String[] args) {
+		
 		SpringApplication.run(GestionDesCatastrophesApplication.class, args);
-		System.out.println("User Applications Started Running ");
+		System.out.println("Hello programmer ");
 
 	}
 
