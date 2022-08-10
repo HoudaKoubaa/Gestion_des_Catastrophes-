@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
   password: any;
   successMessage: any;
   errorMessage = 'Invalid Credentials';
+  router:any;
   
   invalidLogin = false;
   loginSuccess = false;
@@ -27,8 +28,9 @@ export class LoginComponent implements OnInit {
       this.invalidLogin = false;
       this.loginSuccess = true;
       this.successMessage = 'Login Successful';
-      // redirect to main page
-    }, () => {
+
+      this.router.navigate(['/home/']) 
+        }, () => {
       this.invalidLogin = true;
       this.loginSuccess = false;
     });
