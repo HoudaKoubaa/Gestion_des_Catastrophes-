@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/models/user';
 import { AuthService } from 'src/app/services/AuthService';
 
 @Component({
@@ -8,32 +9,15 @@ import { AuthService } from 'src/app/services/AuthService';
 })
 
 export class LoginComponent implements OnInit {
-
-  username: any;
-  password: any;
-  successMessage: any;
-  errorMessage = 'Invalid Credentials';
-  router:any;
-  
-  invalidLogin = false;
-  loginSuccess = false;
-
-  constructor(private authService: AuthService) {}
+user:User = new User();
+  constructor() {}
 
   ngOnInit(): void {
   }
-
-  handleLogin() {
-    this.authService.login(this.username, this.password).subscribe((result) => {
-      this.invalidLogin = false;
-      this.loginSuccess = true;
-      this.successMessage = 'Login Successful';
-
-      this.router.navigate(['/home/']) 
-        }, () => {
-      this.invalidLogin = true;
-      this.loginSuccess = false;
-    });
+  userLogin()
+  {
+    console.log(this.user)
   }
+
 
 }
