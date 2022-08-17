@@ -1,35 +1,21 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { map } from 'rxjs';
+import { map, Observable } from 'rxjs';
+import { User } from '../models/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   
-    public username: any;
-    public password: any;
-
-  constructor(private http: HttpClient) {
+ private baseUrl="http://localhost:4200/api/v1/registration/login"
+  constructor(private httpClient: HttpClient) {
 
   }
-
-  login(username: any, password: any) {
-    return this.http.get(environment.hostUrl + 'api/v1/registration/login',
-      { headers: { authorization: this.createBasicAuthToken(username, password) } }).pipe(map((res) => {
-        this.username = username;
-        this.password = password;
-        this.registerSuccessfulLogin(username, password);
-      }));
-  }
-
-  createBasicAuthToken(username: any, password: any) {
-    return 'Basic ' + window.btoa(username + ":" + password);
-  }
-
-  registerSuccessfulLogin(username:any,password:any)
+  login(user: User ):Observable<object>
   {
-    // save the username to session
+    console.log(user);
+    return this.httpClient.post(`${this.baseUrl}`,user);
   }
 }

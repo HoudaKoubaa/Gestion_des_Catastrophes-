@@ -34,45 +34,44 @@ public class UserService implements  UserDetailsService,IUserService {
 	@Override
 	public UserDetails loadUserByUsername(String email)
 			throws UsernameNotFoundException {
-		return appUserRepository1.findByEmail(email)
-				.orElseThrow(() ->
-				new UsernameNotFoundException(
-						String.format(USER_NOT_FOUND_MSG, email)));
+		return (appUserRepository1.findByEmail(email));
 	}
 
-	public String signUpUser(user appUser) {
-		boolean userExists = appUserRepository1.findByEmail(appUser.getUsername()).isPresent();
+	  public String signUpUser(user appUser) {
+	        boolean userExists = appUserRepository
+	                .findByEmail2(appUser.getEmail())
+	                .isPresent();
 
-		if (userExists) {
-			// TODO check of attributes are the same and
-			// TODO if email not confirmed send confirmation email.
+	        if (userExists) {
+	            // TODO check of attributes are the same and
+	            // TODO if email not confirmed send confirmation email.
 
-			throw new IllegalStateException("email already taken");
-		}
+	            throw new IllegalStateException("email already taken");
+	        }
 
-		String encodedPassword = bCryptPasswordEncoder
-				.encode(appUser.getPassword());
+	        String encodedPassword = bCryptPasswordEncoder
+	                .encode(appUser.getPassword());
 
-		appUser.setMdp(encodedPassword);
+	        appUser.setMdp(encodedPassword);
 
-		appUserRepository1.save(appUser);
+	        appUserRepository.save(appUser);
 
-		String token = UUID.randomUUID().toString();
+	        String token = UUID.randomUUID().toString();
 
-		ConfirmationToken confirmationToken = new ConfirmationToken(
-				token,
-				LocalDateTime.now(),
-				LocalDateTime.now().plusMinutes(15),
-				appUser
-				);
+	        ConfirmationToken confirmationToken = new ConfirmationToken(
+	                token,
+	                LocalDateTime.now(),
+	                LocalDateTime.now().plusMinutes(15),
+	                appUser
+	        );
 
-		confirmationTokenService.saveConfirmationToken(
-				confirmationToken);
+	        confirmationTokenService.saveConfirmationToken(
+	                confirmationToken);
 
-		//        TODO: SEND EMAIL
+//	        TODO: SEND EMAIL
 
-		return token;
-	}
+	        return token;
+	    }
 
 	public int enableAppUser(String email) {
 		return appUserRepository1.enableAppUser(email);

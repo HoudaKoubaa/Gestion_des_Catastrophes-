@@ -10,13 +10,16 @@ import { AuthService } from 'src/app/services/AuthService';
 
 export class LoginComponent implements OnInit {
 user:User = new User();
-  constructor() {}
+  constructor(private loginuser: AuthService) {}
 
   ngOnInit(): void {
   }
   userLogin()
   {
     console.log(this.user)
+    this.loginuser.login(this.user).subscribe(data=>{
+      alert("login Succesful")
+    },error=>alert("Sorry please enter correct user"));
   }
 
 
