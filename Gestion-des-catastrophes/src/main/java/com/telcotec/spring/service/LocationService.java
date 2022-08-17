@@ -20,4 +20,7 @@ public class LocationService {
 	public List<Localisation> getAll() {
 	    return this.locations;
     }
+
+	
+	
 }
