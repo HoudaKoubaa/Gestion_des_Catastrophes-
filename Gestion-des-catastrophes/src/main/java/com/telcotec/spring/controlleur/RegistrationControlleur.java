@@ -5,6 +5,7 @@ import com.telcotec.spring.service.UserService;
 import lombok.AllArgsConstructor;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -32,13 +33,13 @@ public class RegistrationControlleur {
     }
     
    @PostMapping("/login")
-   public ResponseEntity<?> loginUser(@RequestBody user userData)
+   public String loginUser(@RequestBody user userData)
    {
 	   System.out.println(userData);
-	   user user= userRepository.findById(userData.getId());
-	   if(user.getPassword().equals(userData.getPassword()))
-		   return ResponseEntity.ok(user);
-	   return  (ResponseEntity<?>) ResponseEntity.internalServerError();
+	  Optional <user> users= userRepository.findByEmail(userData.getEmail());
+	   if(users.get().getPassword().equals(userData.getPassword()))
+		   return "valide";
+	   return  "invalide";
 	   
    }
 
