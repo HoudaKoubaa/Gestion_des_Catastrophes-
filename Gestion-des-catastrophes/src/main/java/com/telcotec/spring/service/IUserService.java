@@ -10,7 +10,6 @@ public interface IUserService {
 	user addUser(user u);
 
 
-	void deleteUser(int id);
 
 	List<user> retrieveAllUsers();
 	

@@ -22,6 +22,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 	public class RegistrationService {
 
+	
 	    private final UserService appUserService;
 	    private final EmailValidator emailValidator;
 	    private final ConfirmationTokenService confirmationTokenService;

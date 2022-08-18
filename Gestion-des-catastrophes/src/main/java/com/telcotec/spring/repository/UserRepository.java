@@ -8,14 +8,14 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+
 @Repository
 public interface UserRepository extends JpaRepository<user,Integer> {
 
 	
 	user findByNom(String username);
-	user findById(long id);
-	user findByEmail(String email);
-	Optional<user> findByEmail2(String email);
+	user findById(int id);
+	 Optional<user> findByEmail(String email);
 
 	    @Transactional
 	    @Modifying

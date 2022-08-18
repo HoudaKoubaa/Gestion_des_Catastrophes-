@@ -46,7 +46,7 @@ public class user implements UserDetails {
             strategy = GenerationType.SEQUENCE,
             generator = "user_sequence"
     )
-    private long  id;
+    private int  id;
   
     private Boolean locked = false;
     private Boolean enabled = false;
@@ -199,7 +199,7 @@ public String getEmail() {
 
 
 
-public long getId() {
+public int getId() {
 	return id;
 }
 }
