@@ -1,5 +1,6 @@
 package com.telcotec.spring.controlleur;
 import com.telcotec.spring.service.RegistrationService;
+
 import com.telcotec.spring.service.UserService;
 
 import lombok.AllArgsConstructor;
@@ -13,10 +14,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import com.telcotec.spring.entities.user;
 import com.telcotec.spring.repository.UserRepository;
-
 @RestController
-@CrossOrigin(origins = "*")
-@RequestMapping(path = "api/v1/registration")
+@CrossOrigin("*")
+@RequestMapping(path = "api/v1/registration" )
 @AllArgsConstructor
 public class RegistrationControlleur {
  @Autowired
@@ -35,7 +35,7 @@ public class RegistrationControlleur {
         return registrationService.confirmToken(token);
     }
     
-    
+
     @PostMapping("/login")
     public String loginUser(@RequestBody user userData)
     {  	   System.out.println(userData.getEmail());

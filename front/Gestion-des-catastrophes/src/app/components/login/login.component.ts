@@ -9,18 +9,23 @@ import { AuthService } from 'src/app/services/AuthService';
 })
 
 export class LoginComponent implements OnInit {
+  email: any;
+  password: any;
 user:User = new User();
-  constructor(private loginuser: AuthService) {}
+  constructor(private authService: AuthService) {}
 
   ngOnInit(): void {
   }
-  userLogin()
-  {
-    console.log(this.user)
-    this.loginuser.login(this.user).subscribe(data=>{
-      alert("login Succesful")
-    },error=>alert("Sorry please enter correct user"));
-  }
-
+  
+    userLogin()
+    { 
+      
+      console.log(this.user)
+     if(this.authService.login(this.user))
+        alert("login Succesful")
+      
+      else 
+      alert("Sorry please enter correct user");
+    }
 
 }
