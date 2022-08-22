@@ -85,7 +85,7 @@ public class user implements UserDetails {
 
 	@Column(name="mdp")
 	@NonNull
-	private String mdp;
+	private String password;
 
 
 	@Column(name="dateNaiss")
@@ -110,11 +110,11 @@ public class user implements UserDetails {
 	private String  photo;
 
 
-	public user(int id, @NonNull String nom, @NonNull String mdp) {
+	public user(int id, @NonNull String nom, @NonNull String password) {
 		super();
 		this.id = id;
 		this.nom = nom;
-		this.mdp = mdp;
+		this.password = password;
 	}
 	
 
@@ -131,7 +131,7 @@ public class user implements UserDetails {
    this.nom = firstName;
    this.prenom = lastName;
    this.email = email;
-   this.mdp = password;
+   this.password = password;
  
 }
 
@@ -142,10 +142,7 @@ public Collection<? extends GrantedAuthority> getAuthorities() {
    return Collections.singletonList(authority);
 }
 
-@Override
-public String getPassword() {
-   return mdp;
-}
+
 
 @Override
 public String getUsername() {
@@ -187,7 +184,7 @@ public user(int id, @NonNull String nom, @NonNull String prenom, @NonNull String
 	this.id = id;
 	this.nom = nom;
 	this.prenom = prenom;
-	this.mdp = mdp;
+	this.password = password;
 }
 
 
@@ -197,6 +194,10 @@ public String getEmail() {
 
 }
 
+public String getPassword()
+{
+	return password;
+}
 
 
 public int getId() {

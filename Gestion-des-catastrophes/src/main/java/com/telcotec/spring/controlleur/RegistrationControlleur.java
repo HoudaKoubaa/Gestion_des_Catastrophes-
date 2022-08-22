@@ -9,11 +9,13 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import com.telcotec.spring.entities.user;
 import com.telcotec.spring.repository.UserRepository;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping(path = "api/v1/registration")
 @AllArgsConstructor
 public class RegistrationControlleur {
@@ -21,6 +23,7 @@ public class RegistrationControlleur {
  private UserRepository userRepository;
 	
     private final RegistrationService registrationService;
+    private PasswordEncoder paswword;
 
     @PostMapping
     public String register(@RequestBody RegistrationRequest request) {
@@ -32,15 +35,18 @@ public class RegistrationControlleur {
         return registrationService.confirmToken(token);
     }
     
-   @PostMapping("/login")
-   public String loginUser(@RequestBody user userData)
-   {
-	   System.out.println(userData);
-	  Optional <user> users= userRepository.findByEmail(userData.getEmail());
-	   if(users.get().getPassword().equals(userData.getPassword()))
-		   return "valide";
-	   return  "invalide";
-	   
-   }
+    
+    @PostMapping("/login")
+    public String loginUser(@RequestBody user userData)
+    {  	   System.out.println(userData.getEmail());
+
+ 	   System.out.println(userData.getPassword());
+ 	 user  users= userRepository.findByEmail(userData.getEmail());
+ 	 System.out.println(users.getPassword());
+    if(paswword.matches(userData.getPassword(),users.getPassword()))
+ 		   return "valide";
+ 	   return  "invalide";
+ 	   
+    }
 
 }

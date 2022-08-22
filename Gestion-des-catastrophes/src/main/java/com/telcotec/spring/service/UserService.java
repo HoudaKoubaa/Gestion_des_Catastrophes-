@@ -32,14 +32,11 @@ public class UserService implements  UserDetailsService ,IUserService {
 	@Override
 	public UserDetails loadUserByUsername(String email)
 			throws UsernameNotFoundException {
-		return appUserRepository1.findByEmail(email)
-				.orElseThrow(() ->
-				new UsernameNotFoundException(
-						String.format(USER_NOT_FOUND_MSG, email)));
+		return appUserRepository1.findByEmail(email);
 	}
 
 	public String signUpUser(user appUser) {
-		boolean userExists = appUserRepository1.findByEmail(appUser.getUsername()).isPresent();
+		boolean userExists = appUserRepository1.findByEmail(appUser.getUsername()) != null;
 
 		if (userExists) {
 			// TODO check of attributes are the same and
@@ -51,7 +48,7 @@ public class UserService implements  UserDetailsService ,IUserService {
 		String encodedPassword = bCryptPasswordEncoder
 				.encode(appUser.getPassword());
 
-		appUser.setMdp(encodedPassword);
+		appUser.setPassword(encodedPassword);
 
 		appUserRepository1.save(appUser);
 

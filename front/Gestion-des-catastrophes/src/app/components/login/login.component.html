@@ -1,18 +1,18 @@
 <div class="wrapper fadeInDown">
-    <div id="formContent">
-      <div class="alert alert-warning" ></div>
-      <div class="alert alert-success"></div>
-      <!-- Tabs Titles -->
-      <h3>Login</h3>
-  
-      <!-- Login Form -->
-      <form (ngSubmit)="userLogin()">
-        <div>
-        <input type="text" [(ngModel)]="user.userId" id="userId" class="fadeIn second" name="username" placeholder="username">
-        <input type="password" [(ngModel)]="user.password" id="password" class="fadeIn third" name="password" placeholder="password">
-      </div>
-        <button type="submit" class="btn btn-primary" >Login</button>
-      </form>
-  
+  <div id="formContent">
+    <div class="alert alert-warning" ></div>
+    <div class="alert alert-success"></div>
+    <!-- Tabs Titles -->
+    <h3>Login</h3>
+
+    <!-- Login Form -->
+    <form (ngSubmit)="userLogin()">
+      <div>
+      <input type="text" [(ngModel)]="user.email" id="email" class="fadeIn second" name="email" placeholder="email">
+      <input type="password" [(ngModel)]="user.password" id="password" class="fadeIn third" name="password" placeholder="password">
     </div>
+      <button type="submit" class="btn btn-primary" >Login</button>
+    </form>
+
   </div>
+</div>
