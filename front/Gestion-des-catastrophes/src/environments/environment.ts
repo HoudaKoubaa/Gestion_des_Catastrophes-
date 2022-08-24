@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  hostUrl: 'http://localhost:9090'
+  hostUrl: 'http://localhost:8089'
 };
 
 /*

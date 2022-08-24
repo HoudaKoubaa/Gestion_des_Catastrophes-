@@ -26,8 +26,9 @@ export class LoginComponent implements OnInit {
     let resp = this.loginuser.login(this.user);
     this.test= (resp.subscribe(data=>
         { this.message = data
-         this.router.navigate(["/home"])
-        })
+         this.router.navigate(["/home"])},
+         (error) => {                              //Error callback
+          alert("Sorry please enter correct user")})
     );
    
         
