@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
@@ -37,15 +38,18 @@ public class RegistrationControlleur {
     
 
     @PostMapping("/login")
-    public String loginUser(@RequestBody user userData)
+    public ResponseEntity<?> loginUser(@RequestBody user userData)
     {  	   System.out.println(userData.getEmail());
 
  	   System.out.println(userData.getPassword());
  	 user  users= userRepository.findByEmail(userData.getEmail());
  	 System.out.println(users.getPassword());
     if(paswword.matches(userData.getPassword(),users.getPassword()))
- 		   return "valide";
- 	   return  "invalide";
+    	
+    	new ResponseEntity<user>(HttpStatus.OK);      
+    else      
+    	return new ResponseEntity< user>(HttpStatus.CONFLICT);
+	return null;
  	   
     }
 

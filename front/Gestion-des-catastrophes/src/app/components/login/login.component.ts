@@ -10,6 +10,7 @@ import { AuthService } from 'src/app/services/AuthService';
 })
 
 export class LoginComponent implements OnInit {
+  test: any;
   email: any;
   password: any;
   message !:any;
@@ -21,10 +22,17 @@ export class LoginComponent implements OnInit {
   
     userLogin()
     { 
-      console.log(this.user)
-      let resp = this.loginuser.login(this.user);
-      resp.subscribe(data=>{ this.message = data;
-        this.router.navigate(["/home"])
-      });
-}
+     
+    let resp = this.loginuser.login(this.user);
+    this.test= (resp.subscribe(data=>
+        { this.message = data
+         this.router.navigate(["/home"])
+        })
+    );
+   
+        
+      }
+
+      
+
 }
