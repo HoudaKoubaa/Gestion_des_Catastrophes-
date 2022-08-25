@@ -17,6 +17,7 @@ export class ListProgrammeComponent implements OnInit {
   constructor(private programmeService:ProgrammeService, private modalService: NgbModal) { }
 
   ngOnInit(): void {
+    this.getAllProgrammes();
   }
 
   getAllProgrammes(){

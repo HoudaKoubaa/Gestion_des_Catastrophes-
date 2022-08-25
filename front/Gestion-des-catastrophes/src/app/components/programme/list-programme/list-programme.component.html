@@ -17,7 +17,7 @@
                       <div class="table-responsive">
                         <table class="table">
                           <thead>
-                            <tr *ngFor=let programme of listProgrammes>
+                            <tr>
                               <th> Ville </th>
                               <th> Niveau </th>
                               <th> Type de tempete </th>
@@ -28,21 +28,21 @@
                             </tr>
                           </thead>
                           <tbody>
-                            <tr>
+                            <tr *ngFor='let programme of listProgrammes'>
                               <td>
                                 
-                                <span class="pl-2">Ougadougou</span>
+                                <span class="pl-2">{{programme.libelle_Programme}}</span>
                               </td>
                               <td>
                                 <div class="badge badge-outline-success">BAS</div>
                               </td>
-                              <td> Pluie </td>
+                              <td> {{programme.libelle_Programme}} </td>
                               <td> Pluie sans innondation </td>
                               <td> Haut </td>
                               <td> 01 Sep 2022 </td>
                               <td>     <a class="nav-link btn badge-outline-danger" id="createbuttonDropdown" data-toggle="dropdown" aria-expanded="false" href="#">Alerte ignorée</a></td>
                             </tr>
-                            <tr>
+                           <!-- <tr>
                               
                               <td>
                                 <span class="pl-2">Kaya</span>
@@ -69,7 +69,7 @@
                               <td> 03 Sep 2022 </td>
                               <td>     <a align="center" class="nav-link badge-outline-success create-new-button" id="createbuttonDropdown" data-toggle="dropdown" aria-expanded="false" href="#">Deja envoyé</a></td>
                             </tr>
-                            
+                            -->
                           </tbody>
                         </table>
                       </div>

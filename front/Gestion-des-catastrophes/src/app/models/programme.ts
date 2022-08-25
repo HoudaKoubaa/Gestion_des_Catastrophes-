@@ -1,7 +1,7 @@
 export class Programme {
     id:any;
 	
-	libelleProgramme:any;
+	libelle_Programme:any;
 	
 	categorieProgramme:any;
 	
