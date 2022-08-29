@@ -1,11 +1,53 @@
-<div class="container-scroller">
-    <!-- partial:partials/_sidebar.html -->
+      <h4 class="card-title">To do list</h4>
+      <div class="add-items d-flex">
+        <input type="text" class="form-control todo-list-input" placeholder="enter task..">
+        <button class="add btn btn-primary todo-list-add-btn">Add</button>
+      </div>
+      <div class="list-wrapper">
+        <ul class="d-flex flex-column-reverse text-white todo-list todo-list-custom">
+          <li *ngFor='let programme of listProgrammes'>
+            <div class="form-check form-check-primary">
+              <label class="form-check-label">
+                <input  class="mdi mdi-checkbox-blank-outline" type="checkbox"> Create invoice </label>
+            </div>
+            <i class="remove mdi mdi-close-box"></i>
+          </li>
+          <!--<li>
+            <div class="form-check form-check-primary">
+              <label class="form-check-label">
+                <input class="checkbox" type="checkbox"> Meeting with Alita </label>
+            </div>
+            <i class="remove mdi mdi-close-box"></i>
+          </li>
+          <li class="completed">
+            <div class="form-check form-check-primary">
+              <label class="form-check-label">
+                <input class="checkbox" type="checkbox" checked> Prepare for presentation </label>
+            </div>
+            <i class="remove mdi mdi-close-box"></i>
+          </li>
+          <li>
+            <div class="form-check form-check-primary">
+              <label class="form-check-label">
+                <input class="checkbox" type="checkbox"> Plan weekend outing </label>
+            </div>
+            <i class="remove mdi mdi-close-box"></i>
+          </li>
+          <li>
+            <div class="form-check form-check-primary">
+              <label class="form-check-label">
+                <input class="checkbox" type="checkbox"> Pick up kids from school </label>
+            </div>
+            <i class="remove mdi mdi-close-box"></i>
+          </li>-->
+        </ul>
+      </div>
+    
+
+<!--<div class="container-scroller">
     <app-sidebar></app-sidebar>
-    <!-- partial -->
     <div class="container-fluid page-body-wrapper">
-      <!-- partial:partials/_navbar.html -->
       <app-topbar></app-topbar>
-      <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
          
@@ -42,7 +84,7 @@
                               <td> 01 Sep 2022 </td>
                               <td>     <a class="nav-link btn badge-outline-danger" id="createbuttonDropdown" data-toggle="dropdown" aria-expanded="false" href="#">Alerte ignorée</a></td>
                             </tr>
-                           <!-- <tr>
+                            <tr>
                               
                               <td>
                                 <span class="pl-2">Kaya</span>
@@ -69,7 +111,7 @@
                               <td> 03 Sep 2022 </td>
                               <td>     <a align="center" class="nav-link badge-outline-success create-new-button" id="createbuttonDropdown" data-toggle="dropdown" aria-expanded="false" href="#">Deja envoyé</a></td>
                             </tr>
-                            -->
+                            
                           </tbody>
                         </table>
                       </div>
@@ -80,11 +122,9 @@
               
          </div>
         
-         <!-- content-wrapper ends -->
+        
        
-        <!-- partial -->
-      </div>
-      <!-- main-panel ends -->
+             </div>
     </div>
-    <!-- page-body-wrapper ends -->
   </div>
+-->
