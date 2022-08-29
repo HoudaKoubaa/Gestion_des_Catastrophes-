@@ -3,12 +3,11 @@ export class Programme {
 	
 	libelle_Programme:any;
 	
-	categorieProgramme:any;
+	description:any;
 	
-	localisationProg:any;
+	typeProgramme:any;
 	
-	tuteurProg:any;
+	takenBy:any; 
 	
-	nbrParticipant:any; 
 	
 }

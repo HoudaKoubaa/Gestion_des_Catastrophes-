@@ -20,6 +20,7 @@ export class ListProgrammeComponent implements OnInit {
     this.getAllProgrammes();
   }
 
+  
   getAllProgrammes(){
     this.programmeService.retrieveAllProgrammes().subscribe(res=>this.listProgrammes = res);
   }
