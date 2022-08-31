@@ -25,7 +25,7 @@ export class AjouterProgrammeComponent implements OnInit {
       id:null,
       libelleProgramme:null,
       description:null,
-      typeProgramme:null,
+      typeProgramme:"ToDo",
       takenBy:null,
     }
   }
