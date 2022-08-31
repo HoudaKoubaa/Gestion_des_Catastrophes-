@@ -39,9 +39,7 @@ public class RegistrationControlleur {
 
     @PostMapping("/login")
     public ResponseEntity<?> loginUser(@RequestBody user userData)
-    {  	   System.out.println(userData.getEmail());
-
- 	   System.out.println(userData.getPassword());
+    {  
  	 user  users= userRepository.findByEmail(userData.getEmail());
  	 System.out.println(users.getPassword());
     if(paswword.matches(userData.getPassword(),users.getPassword()))

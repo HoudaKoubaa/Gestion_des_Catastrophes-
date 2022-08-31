@@ -10,6 +10,7 @@ import { AuthService } from 'src/app/services/AuthService';
 })
 
 export class LoginComponent implements OnInit {
+ 
   test: any;
   email: any;
   password: any;

@@ -130,11 +130,12 @@ public class user implements UserDetails {
 	  public user(String firstName,
               String lastName,
               String email,
-              String password) {
+              String password,int cin) {
    this.nom = firstName;
    this.prenom = lastName;
    this.email = email;
    this.password = password;
+   this.cin=cin;
  
 }
 
@@ -159,6 +160,9 @@ public String getFirstName() {
 public String getLastName() {
    return prenom;
 }
+public int getCin() {
+	   return cin;
+	}
 
 @Override
 public boolean isAccountNonExpired() {

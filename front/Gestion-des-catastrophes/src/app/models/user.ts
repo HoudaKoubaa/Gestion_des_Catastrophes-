@@ -1,6 +1,12 @@
 export class User {
-    email!:any;
-	password!:any;
+     
+  
+  nom:any;
+  prenom:any;
+  num_tel:any;
+  email:any;
+  password!:any;
+  cin!:any;
 
 
 }
