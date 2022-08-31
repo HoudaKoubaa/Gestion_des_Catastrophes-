@@ -1,130 +1,21 @@
-      <h4 class="card-title">To do list</h4>
+      <a><h4 class="card-title" (click)="open(mymodal1)">To do list</h4>  </a>
       <div class="add-items d-flex">
-        <input type="text" class="form-control todo-list-input" placeholder="enter task..">
-        <button class="add btn btn-primary todo-list-add-btn">Add</button>
+        <!--<input type="text" class="form-control todo-list-input" placeholder="enter task..">-->
+       
+        <ng-template #mymodal1 let-modal1>
+          <app-ajouter-programme></app-ajouter-programme>
+      </ng-template>
       </div>
       <div class="list-wrapper">
         <ul class="d-flex flex-column-reverse text-white todo-list todo-list-custom">
           <li *ngFor='let programme of listProgrammes'>
             <div class="form-check form-check-primary">
-              <label class="form-check-label">
-                <input  class="mdi mdi-close-circle" type="checkbox"> Create invoice </label>
+              <a class="form-check-label" >
+                {{programme.libelleProgramme}} </a>
+                
             </div>
-            <i class="remove mdi mdi-close-box"></i>
+            <i class="remove mdi mdi-close-box" (click)="deleteProgramme(programme.id)"></i>
           </li>
-          <!--<li>
-            <div class="form-check form-check-primary">
-              <label class="form-check-label">
-                <input class="checkbox" type="checkbox"> Meeting with Alita </label>
-            </div>
-            <i class="remove mdi mdi-close-box"></i>
-          </li>
-          <li class="completed">
-            <div class="form-check form-check-primary">
-              <label class="form-check-label">
-                <input class="checkbox" type="checkbox" checked> Prepare for presentation </label>
-            </div>
-            <i class="remove mdi mdi-close-box"></i>
-          </li>
-          <li>
-            <div class="form-check form-check-primary">
-              <label class="form-check-label">
-                <input class="checkbox" type="checkbox"> Plan weekend outing </label>
-            </div>
-            <i class="remove mdi mdi-close-box"></i>
-          </li>
-          <li>
-            <div class="form-check form-check-primary">
-              <label class="form-check-label">
-                <input class="checkbox" type="checkbox"> Pick up kids from school </label>
-            </div>
-            <i class="remove mdi mdi-close-box"></i>
-          </li>-->
         </ul>
       </div>
-    
-
-<!--<div class="container-scroller">
-    <app-sidebar></app-sidebar>
-    <div class="container-fluid page-body-wrapper">
-      <app-topbar></app-topbar>
-      <div class="main-panel">
-        <div class="content-wrapper">
-         
-            <div class="row ">
-                <div class="col-12 grid-margin">
-                  <div class="card">
-                    <div class="card-body">
-                      <h4 class="card-title">Programmes</h4>
-                      <div class="table-responsive">
-                        <table class="table">
-                          <thead>
-                            <tr>
-                              <th> Ville </th>
-                              <th> Niveau </th>
-                              <th> Type de tempete </th>
-                              <th> Description </th>
-                              <th> Frequence </th>
-                              <th> Date</th>
-                              <th> Action </th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr *ngFor='let programme of listProgrammes'>
-                              <td>
-                                
-                                <span class="pl-2">{{programme.libelle_Programme}}</span>
-                              </td>
-                              <td>
-                                <div class="badge badge-outline-success">BAS</div>
-                              </td>
-                              <td> {{programme.type_programme}} </td>
-                              <td> Pluie sans innondation </td>
-                              <td> Haut </td>
-                              <td> 01 Sep 2022 </td>
-                              <td>     <a class="nav-link btn badge-outline-danger" id="createbuttonDropdown" data-toggle="dropdown" aria-expanded="false" href="#">Alerte ignorée</a></td>
-                            </tr>
-                            <tr>
-                              
-                              <td>
-                                <span class="pl-2">Kaya</span>
-                              </td>
-                              <td>
-                                <div class="badge badge-outline-warning">HAUT</div>
-                              </td>
-                              <td> Vent </td>
-                              <td> Vent Rapide </td>
-                              <td> Moyen </td>
-                              <td> 02 Sep 2022 </td>
-                              <td>     <a class="nav-link btn badge-outline-warning create-new-button" id="createbuttonDropdown" data-toggle="dropdown" aria-expanded="false" href="#">Envoyer alerte</a></td>
-                             </tr>
-                            <tr>
-                              <td>
-                                <span class="pl-2">Dori</span>
-                              </td>
-                              <td>
-                                <div class="badge badge-outline-danger">GRAVE</div>
-                              </td>
-                              <td> Orage </td>
-                              <td> Orage dangereux </td>
-                              <td> Tres Haut </td>
-                              <td> 03 Sep 2022 </td>
-                              <td>     <a align="center" class="nav-link badge-outline-success create-new-button" id="createbuttonDropdown" data-toggle="dropdown" aria-expanded="false" href="#">Deja envoyé</a></td>
-                            </tr>
-                            
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-         </div>
-        
-        
-       
-             </div>
-    </div>
-  </div>
--->
+   
