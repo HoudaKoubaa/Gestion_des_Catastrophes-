@@ -26,9 +26,9 @@
 
     });
 
-    todoListItem.on('click', '.remove', function() {
-      $(this).parent().remove();
-    });
+   // todoListItem.on('click', '.remove', function() {
+     // $(this).parent().remove();
+   // });
 
   });
 })(jQuery);
