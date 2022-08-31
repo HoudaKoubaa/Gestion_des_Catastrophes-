@@ -17,8 +17,8 @@
               <input type="text" class="form-control" id="exampleInputMobile" placeholder="Contenu">
             </div>
           </div>
-          <button type="submit" class="btn btn-primary mr-2" (click)="addProgramme(programme)" >Submit</button>
-          <button class="btn btn-dark">Cancel</button>
+          <button type="submit" class="btn btn-primary mr-2" (click)="addProgramme(programme)" (click)="refresh()">Submit</button>
+          <button class="btn btn-dark"  (click)="refresh()">Cancel</button>
         </form>
       </div>
     </div>

@@ -71,6 +71,8 @@ export class AjouterProgrammeComponent implements OnInit {
     cancel(){
       this.form = false;
     }
-  
+    refresh(): void {
+      window.location.reload();
+  }
 
 }

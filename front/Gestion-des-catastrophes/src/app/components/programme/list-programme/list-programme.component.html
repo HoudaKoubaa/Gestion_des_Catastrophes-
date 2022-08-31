@@ -1,7 +1,6 @@
       <a><h4 class="card-title" (click)="open(mymodal1)">To do list</h4>  </a>
       <div class="add-items d-flex">
         <!--<input type="text" class="form-control todo-list-input" placeholder="enter task..">-->
-       
         <ng-template #mymodal1 let-modal1>
           <app-ajouter-programme></app-ajouter-programme>
       </ng-template>
@@ -10,9 +9,9 @@
         <ul class="d-flex flex-column-reverse text-white todo-list todo-list-custom">
           <li *ngFor='let programme of listProgrammes'>
             <div class="form-check form-check-primary">
+              <h6 class="preview-subject">{{programme.libelleProgramme}}</h6>
               <a class="form-check-label" >
-                {{programme.libelleProgramme}} </a>
-                
+                {{programme.description}} </a>
             </div>
             <i class="remove mdi mdi-close-box" (click)="deleteProgramme(programme.id)"></i>
           </li>
