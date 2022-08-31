@@ -98,9 +98,9 @@ public class user implements UserDetails {
 	private Genre sexe;
 
 
-	@Column(name="NumTel")
+	@Column(name="num")
 
-	private int NumTel;
+	private int num;
 
 
 	@Column(name="Adresse")
@@ -113,7 +113,9 @@ public class user implements UserDetails {
 	private String  photo;
 
 
-	public user(int id, @NonNull String nom, @NonNull String password) {
+
+
+	public user(int id, String nom, String password) {
 		super();
 		this.id = id;
 		this.nom = nom;
@@ -128,12 +130,13 @@ public class user implements UserDetails {
 	  public user(String firstName,
               String lastName,
               String email,
-              String password,int cin) {
+              String password,int cin,int num) {
    this.nom = firstName;
    this.prenom = lastName;
    this.email = email;
    this.password = password;
    this.cin=cin;
+   this.num=num;
    
  
 }
@@ -209,5 +212,20 @@ public String getPassword()
 public int getId() {
 	return id;
 }
+
+
+
+
+
+
+public user() {
+	super();
+}
+
+
+
+
+
+
 }
 

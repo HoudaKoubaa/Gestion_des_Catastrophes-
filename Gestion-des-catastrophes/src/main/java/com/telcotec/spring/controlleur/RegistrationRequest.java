@@ -10,10 +10,12 @@ import lombok.ToString;
 @EqualsAndHashCode
 @ToString
 public class RegistrationRequest {
-    private final String firstName;
-    private final String lastName;
+    private final String nom;
+    private final String prenom;
     private final String email;
     private final String password;
 	public final int cin; 
+	public final int num; 
+
 	
 }

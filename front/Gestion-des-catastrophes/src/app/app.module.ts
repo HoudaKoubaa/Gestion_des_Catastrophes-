@@ -17,7 +17,7 @@ import { ListProgrammeComponent } from './components/programme/list-programme/li
 import { ListInterventionComponent } from './components/intervention/list-intervention/list-intervention.component';
 import { TopbarComponent } from './components/shared/topbar/topbar.component';
 import { LoginComponent } from './components/login/login.component';
-import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { SignComponent } from './components/sign/sign.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +32,8 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
     ListInterventionComponent,
     TopbarComponent,
     LoginComponent,
-    SignUpComponent
+    SignComponent,
+
   ],
   imports: [
     BrowserModule,

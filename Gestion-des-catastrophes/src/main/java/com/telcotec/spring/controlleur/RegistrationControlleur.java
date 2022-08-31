@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 
 import java.util.List;
 import java.util.Optional;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,7 +26,6 @@ public class RegistrationControlleur {
 	
     private final RegistrationService registrationService;
     private PasswordEncoder paswword;
-
     @PostMapping
     public String register(@RequestBody RegistrationRequest request) {
         return registrationService.register(request);
@@ -41,10 +41,13 @@ public class RegistrationControlleur {
     public ResponseEntity<?> loginUser(@RequestBody user userData)
     {  
  	 user  users= userRepository.findByEmail(userData.getEmail());
+ 	 System.out.println(users.getEmail());
+
  	 System.out.println(users.getPassword());
     if(paswword.matches(userData.getPassword(),users.getPassword()))
     	
     	new ResponseEntity<user>(HttpStatus.OK);      
+    
     else      
     	return new ResponseEntity< user>(HttpStatus.CONFLICT);
 	return null;

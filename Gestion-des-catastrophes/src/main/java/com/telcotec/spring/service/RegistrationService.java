@@ -38,11 +38,12 @@ import java.time.LocalDateTime;
 
 	        String token = appUserService.signUpUser(
 	                new user(
-	                        request.getFirstName(),
-	                        request.getLastName(),
+	                        request.getNom(),
+	                        request.getPrenom(),
 	                        request.getEmail(),
 	                        request.getPassword(),
-	                        request.getCin()
+	                        request.getCin(),
+	                        request.getNum()
 
 	                )
 	        );
@@ -50,7 +51,7 @@ import java.time.LocalDateTime;
 	        String link = "http://localhost:9090/api/v1/registration/confirm?token=" + token;
 	        emailSender.send(
 	                request.getEmail(),
-	                buildEmail(request.getFirstName(), link));
+	                buildEmail(request.getNom(), link));
 
 	        return token;
 	    }
