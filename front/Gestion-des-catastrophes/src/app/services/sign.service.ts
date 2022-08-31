@@ -8,7 +8,7 @@ import { User } from '../models/user';
 })
 export class SignService {
   
-  private baseUrl="localhost:9090/api/v1/registration/sign"
+  private baseUrl="http://localhost:9090/api/v1/registration"
  
   constructor(private httpClient: HttpClient) {
   }

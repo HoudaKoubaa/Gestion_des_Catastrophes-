@@ -13,6 +13,7 @@ test:any;
 message:any;
   user:User = new User();
   constructor(private loginuser: SignService,private router:Router) { }
+
   ngOnInit(): void {
   }
   userSign()
@@ -20,9 +21,9 @@ message:any;
     let resp = this.loginuser.Sign(this.user);
     this.test= (resp.subscribe(data=>
         { this.message = data
-         this.router.navigate(["/home"])},
+         this.router.navigate(["/signup"])},
          (error) => {                              //Error callback
-          alert("Sorry please enter correct user")})
+          alert("Votre coordonnées est erronée")})
     );
    
 

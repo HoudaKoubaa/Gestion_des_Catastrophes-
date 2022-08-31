@@ -27,8 +27,14 @@ public class RegistrationControlleur {
     private final RegistrationService registrationService;
     private PasswordEncoder paswword;
     @PostMapping
-    public String register(@RequestBody RegistrationRequest request) {
-        return registrationService.register(request);
+    public ResponseEntity<?> register(@RequestBody RegistrationRequest request) {
+        if( registrationService.register(request)!=null)
+        	    	
+        	    	new ResponseEntity<user>(HttpStatus.OK);      
+        	    
+        	    else      
+        	    	return new ResponseEntity< user>(HttpStatus.CONFLICT);
+        		return null;
     }
 
     @GetMapping(path = "confirm")
