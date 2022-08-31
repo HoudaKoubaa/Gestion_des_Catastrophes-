@@ -41,7 +41,8 @@ import java.time.LocalDateTime;
 	                        request.getFirstName(),
 	                        request.getLastName(),
 	                        request.getEmail(),
-	                        request.getPassword()
+	                        request.getPassword(),
+	                        request.getCin()
 
 	                )
 	        );

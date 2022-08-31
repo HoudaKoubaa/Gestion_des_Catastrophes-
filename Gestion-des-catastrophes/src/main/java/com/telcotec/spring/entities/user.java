@@ -122,19 +122,18 @@ public class user implements UserDetails {
 	
 
 
-	public user() {
-		super();
-	}
+
 
 
 	  public user(String firstName,
               String lastName,
               String email,
-              String password) {
+              String password,int cin) {
    this.nom = firstName;
    this.prenom = lastName;
    this.email = email;
    this.password = password;
+   this.cin=cin;
    
  
 }

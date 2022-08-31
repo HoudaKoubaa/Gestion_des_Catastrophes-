@@ -14,4 +14,6 @@ public class Registration{
     private final String lastName;
     private final String email;
     private final String password;
+    private final int cin;
+
 }
