@@ -18,6 +18,7 @@ import { ListInterventionComponent } from './components/intervention/list-interv
 import { TopbarComponent } from './components/shared/topbar/topbar.component';
 import { LoginComponent } from './components/login/login.component';
 import { AjouterProgrammeComponent } from './components/programme/ajouter-programme/ajouter-programme.component';
+import { AjouterInterventionComponent } from './components/intervention/ajouter-intervention/ajouter-intervention.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +33,8 @@ import { AjouterProgrammeComponent } from './components/programme/ajouter-progra
     ListInterventionComponent,
     TopbarComponent,
     LoginComponent,
-    AjouterProgrammeComponent
+    AjouterProgrammeComponent,
+    AjouterInterventionComponent
   ],
   imports: [
     BrowserModule,

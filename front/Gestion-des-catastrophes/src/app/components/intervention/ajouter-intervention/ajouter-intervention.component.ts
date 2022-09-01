@@ -4,11 +4,11 @@ import { Intervention } from 'src/app/models/intervention';
 import { InterventionService } from 'src/app/services/intervention.service';
 
 @Component({
-  selector: 'app-list-intervention',
-  templateUrl: './list-intervention.component.html',
-  styleUrls: ['./list-intervention.component.css']
+  selector: 'app-ajouter-intervention',
+  templateUrl: './ajouter-intervention.component.html',
+  styleUrls: ['./ajouter-intervention.component.css']
 })
-export class ListInterventionComponent implements OnInit {
+export class AjouterInterventionComponent implements OnInit {
   listInterventions:any; 
   form:boolean=false;
   intervention!:Intervention;
@@ -17,13 +17,19 @@ export class ListInterventionComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllInterventions();
-    
+    this.intervention = {
+      id:null,
+      libelleIntervention:null,
+      addresseIntervention:null,
+      dateIntervention:null,
+      intervenant:null
+    }
+
   }
 
   getAllInterventions(){
     this.interventionService.retrieveAllInterventions().subscribe(res=>this.listInterventions = res);
   }
-
   
   open(content: any) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
@@ -47,5 +53,7 @@ export class ListInterventionComponent implements OnInit {
     cancel(){
       this.form = false;
     }
-
+    refresh(): void {
+      window.location.reload();
+  }
 }

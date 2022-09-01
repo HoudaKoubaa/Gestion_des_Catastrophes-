@@ -9,7 +9,7 @@ import { SidebarComponent } from './components/shared/sidebar/sidebar.component'
 
 const routes: Routes = [
   {path: 'home',  component: HomeComponent },
-  {path: '', redirectTo: '/home', pathMatch: 'full'},
+  {path: '', redirectTo: '/login', pathMatch: 'full'},
   {path: 'login',  component: LoginComponent},
   {path:'programme',component:ListProgrammeComponent},
   {path:'404',component:NotFoundComponent},
