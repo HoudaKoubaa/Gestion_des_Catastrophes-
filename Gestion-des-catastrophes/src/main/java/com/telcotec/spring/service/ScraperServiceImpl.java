@@ -95,5 +95,30 @@ public class ScraperServiceImpl implements IScraperService{
         }
     }
 
+    
+    private void extractDataFromtimeanddate(Set<WeatherDataDto> weatherDataDtos, String url) {
+
+        try {
+            //loading the HTML to a Document Object
+            Document document = Jsoup.connect(url).get();
+            //Selecting the element which contains the ad list
+            Element element = document.getElementsByClass("zebra tb-wt fw va-m tb-hover sticky-en").first();
+            //getting all the <a> tag elements inside the content div tag
+            Elements elements = element.getElementsByTag("a");
+           //traversing through the elements
+            for (Element ads: elements) {
+            	WeatherDataDto weatherDataDto = new WeatherDataDto();
+
+                if (!StringUtils.isEmpty(ads.attr("title")) ) {
+                    //mapping data to the model class
+                	weatherDataDto.setTitle(ads.attr("title"));
+                	weatherDataDto.setUrl(ads.attr("href"));
+                }
+                if (weatherDataDto.getUrl() != null) weatherDataDtos.add(weatherDataDto);
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
 
 }
