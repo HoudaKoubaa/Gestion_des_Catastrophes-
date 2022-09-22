@@ -1,6 +1,6 @@
 export enum Niveau {
   Bas="Bas",
-  haut="Haut" ,
+  Haut="Haut",
   grave="Grave",
 
 }
