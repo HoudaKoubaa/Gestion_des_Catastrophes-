@@ -19,13 +19,13 @@ public class Localisation implements Serializable{
     @Column(name = "Id") 
     @GeneratedValue(strategy= GenerationType.IDENTITY)
 	private String id;
-	private double altitude;
+	private String city;
 	private double latitude;
 	private double longitude;
 	
-	public Localisation(double altitude, double latitude, double longitude, String id) {
+	public Localisation(String city, double latitude, double longitude, String id) {
 		super();
-		this.altitude = altitude;
+		this.city = city;
 		this.latitude = latitude;
 		this.longitude = longitude;
 		this.id = id;
@@ -37,13 +37,6 @@ public class Localisation implements Serializable{
 
 	public Localisation() {}
 
-	public double getAltitude() {
-		return altitude;
-	}
-
-	public void setAltitude(double altitude) {
-		this.altitude = altitude;
-	}
 
 	public double getLatitude() {
 		return latitude;
@@ -63,7 +56,7 @@ public class Localisation implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Location [altitude=" + altitude + ", latitude=" + latitude + ", longitude=" + longitude + "]";
+		return "Location [city=" + city + ", latitude=" + latitude + ", longitude=" + longitude + "]";
 	}
 
 	public void setId(String randomUUID) {

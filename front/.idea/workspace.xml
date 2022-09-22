@@ -22,21 +22,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/ASUS/Documents/GitHub/Gestion_des_Catastrophes-/front&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.fileTypes&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\ASUS\\Documents\\GitHub\\Gestion_des_Catastrophes-\\front\\Gestion-des-catastrophes\\node_modules\\typescript\\lib&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/ASUS/Documents/GitHub/Gestion_des_Catastrophes-/front/Gestion-des-catastrophes",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.fileTypes",
+    "ts.external.directory.path": "C:\\Users\\ASUS\\Documents\\GitHub\\Gestion_des_Catastrophes-\\front\\Gestion-des-catastrophes\\node_modules\\typescript\\lib"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="npm.Angular CLI Server">
     <configuration name="Angular Application" type="JavascriptDebugType" uri="http://localhost:4200">
       <method v="2" />
@@ -68,6 +68,16 @@
       <workItem from="1660122501670" duration="1780000" />
       <workItem from="1660216282362" duration="1041000" />
       <workItem from="1660640003936" duration="600000" />
+      <workItem from="1660727003264" duration="652000" />
+      <workItem from="1660903264065" duration="600000" />
+      <workItem from="1661247277998" duration="6657000" />
+      <workItem from="1661263297096" duration="1044000" />
+      <workItem from="1661330279826" duration="1192000" />
+      <workItem from="1661360972467" duration="603000" />
+      <workItem from="1661426097392" duration="1985000" />
+      <workItem from="1661428840953" duration="1402000" />
+      <workItem from="1661430931141" duration="550000" />
+      <workItem from="1661433638597" duration="23000" />
     </task>
     <servers />
   </component>

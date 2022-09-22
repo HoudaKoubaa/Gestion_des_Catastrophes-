@@ -1,6 +1,5 @@
 package com.telcotec.spring.config;
 
-import org.apache.commons.logging.Log;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ResourceLoader;
@@ -20,10 +19,11 @@ public class GeoLocationConfig {
 		this.resourceloader= resourceloader;
 	}
 	
-	@Bean
+	/*@Bean
 	public DatabaseReader databasereader() {
-			Log.info("GeoLocationConfig traying to load  geolite contry");
+			log.info("GeoLocationConfig traying to load  geolite contry");
+			
 		
-	}
+	}*/
 
 }

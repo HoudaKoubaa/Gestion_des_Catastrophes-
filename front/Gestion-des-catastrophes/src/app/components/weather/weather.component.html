@@ -1,64 +1,66 @@
-
-<div class="search">
-  <form #form="ngForm" >
-    <input type="text" placeholder="Search city" name="city">
+<!--
+<div class="col-md-6">
+  <h3 class="text-center my-4">Search for Weather:</h3>
+  <form
+    [formGroup]="weatherSearchForm"
+    (ngSubmit)="sendToAPIXU(weatherSearchForm.value)">
+    <div class="form-group">
+      <input
+        class="form-control"
+        type="text"
+        id="weatherLocation"
+        aria-describedby="weatherLocation"
+        placeholder="Please input a Location"
+        formControlName="location"
+      />
+    </div>
+    <div class="text-center">
+      <button type="submit" class="btn btn-success btn-md">
+        Search for the weather
+      </button>
+    </div>
   </form>
 </div>
-<div class="container" *ngif="weather">
-  <div class="upper-data">
-    <img src="../assets/hot.png" *ngif="weather.temp > 15">
-    <img src="../assets/cold.png" *ngif="weather.temp <= 15">
-
-    <div class="weather-data">
-      <div class="location">{{ weather.name }}</div>
-      <div class="temperature">{{ weather.temp | number: '1.0-0'}}°C</div>
-    </div>
-  </div>
-
-  <div class="lower-data">
-    <div class="more-info-label">
-      More Information
-    </div>
-    <div class="more-info-container">
-      <div class="info-block">
-        <div class="info-block-label">
-          <img src="../assets/min.png">
-          <span>min</span>
-        </div>
-        <div class="info-block-value">
-          {{weather.temp_min | number: '1.0-0'}}°C
-        </div>
-      </div>
-
-      <div class="info-block">
-        <div class="info-block-label">
-          <img src="../assets/max.png">
-          <span>max</span>
-        </div>
-        <div class="info-block-value">
-          {{weather.temp_max | number: '1.0-0'}}°C
-        </div>
-      </div>
-
-      <div class="info-block">
-        <div class="info-block-label">
-          <img src="../assets/humidity.png">
-          <span>humidity</span>
-        </div>
-        <div class="info-block-value">
-          {{weather.humidity}}%
-        </div>
-      </div>
-
-      <div class="info-block">
-        <div class="info-block-label">
-          <img src="../assets/wind.png">
-          <span>wind</span>
-        </div>
-        <div class="info-block-value">
-          {{weather.speed}} km/h
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="col-md-6">
+  <h3 class="text-center my-4">Weather Details:</h3>
+  <p class="text-center">
+    Current weather conditions: {{this.weatherData?.current.condition}}
+  </p>
+  <p class="text-center">
+    Temperature in Degrees Celsius: {{this.weatherData?.current.temp_c}}
+  </p>
+  <p class="text-center">
+    Temperature in Degrees Farenheit: {{this.weatherData?.current.temp_f}}
+  </p>
+  <p class="text-center">
+    Feels like in Degrees Celsius: {{this.weatherData?.current.feelslike_c}}
+  </p>
+  <p class="text-center">
+    Feels like in Degrees Farenheit:
+    {{this.weatherData?.current.feelslike_f}}
+  </p>
+  <p class="text-center">
+    Location Searched: {{this.weatherData?.location.name}},
+    {{this.weatherData?.location.country}}
+  </p>
 </div>
+-->
+<div class="form-group">
+  <!--<input
+    class="form-control"
+    type="text"
+    id="name"
+    aria-describedby="weatherLocation"
+    placeholder="Please input a Location"
+    [(ngModel)]="weather.name"  [ngModelOptions]="{standalone : true}"
+  />-->
+  <div class="text-center">
+    <button type="submit" class="btn btn-success btn-md" (click)="getweather(weather,weather.name)">
+      Search for the weather
+    </button>
+  </div>
+  <p>City : {{weather.name}}</p>
+  <p>Humidity :{{weather.humidity}}</p>
+  <p>temperature : {{weather.temp}}</p>
+</div>
+

@@ -14,16 +14,19 @@ import org.springframework.ui.Model;
 import java.io.IOException;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 @ComponentScan("com.telcotec.spring.config")
-@RestController("a")
+@RestController("/a")
+@CrossOrigin(origins = "*")
 public class WeatherController {
+
     @Autowired
     RestTemplate restTemp;
 
@@ -39,7 +42,8 @@ public class WeatherController {
         return "formData";
     }
 
-    @RequestMapping(value = "/weather",method=RequestMethod.POST )
+   // @RequestMapping(value = "/weather/{city}",method=RequestMethod.POST )
+    @PostMapping("/weather/{city}")
     public Weather getWeather(@ModelAttribute FormCityAttribute city)
             throws JsonParseException, JsonMappingException, IOException {
 
