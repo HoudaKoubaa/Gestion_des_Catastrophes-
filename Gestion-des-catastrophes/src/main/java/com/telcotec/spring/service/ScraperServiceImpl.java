@@ -43,6 +43,25 @@ public class ScraperServiceImpl implements IScraperService{
 
         return weatherDataDto;
     }
+    
+    public Set<WeatherDataDto> getWeather(String weather) {
+        //Using a set here to only store unique elements
+        Set<WeatherDataDto> weatherDataDto = new HashSet<>();
+        //Traversing through the urls
+        for (String url: urls) {
+
+            if (url.contains("ikman")) {
+                //method to extract data from Ikman.lk
+                extractDataFromIkman(weatherDataDto, url + weather);
+            } else if (url.contains("riyasewana")) {
+               //method to extract Data from riyasewana.com
+                extractDataFromRiyasewana(weatherDataDto, url + weather);
+            }
+
+        }
+
+        return weatherDataDto;
+    }
 
     private void extractDataFromRiyasewana(Set<WeatherDataDto> weatherDataDtos, String url) {
 
@@ -96,7 +115,7 @@ public class ScraperServiceImpl implements IScraperService{
     }
 
     
-    private void extractDataFromtimeanddate(Set<WeatherDataDto> weatherDataDtos, String url) {
+    private void extractDataForWeather(Set<WeatherDataDto> weatherDataDtos, String url) {
 
         try {
             //loading the HTML to a Document Object
@@ -104,7 +123,7 @@ public class ScraperServiceImpl implements IScraperService{
             //Selecting the element which contains the ad list
             Element element = document.getElementsByClass("zebra tb-wt fw va-m tb-hover sticky-en").first();
             //getting all the <a> tag elements inside the content div tag
-            Elements elements = element.getElementsByTag("a");
+            Elements elements = element.getElementsByTag("img");
            //traversing through the elements
             for (Element ads: elements) {
             	WeatherDataDto weatherDataDto = new WeatherDataDto();

@@ -20,9 +20,9 @@ public class ProgrammeServiceImpl implements IProgrammeService{
 	@Override
 	public List<Programme> retrieveAllProgrammes() {
 		List<Programme> programmeList =  programmeRepository.findAll();
-		for (Programme programme : programmeList){
+	/*	for (Programme programme : programmeList){
 			log.info(" Programme: " +programme);
-		}
+		}*/
 		return programmeList;
 	}
 
